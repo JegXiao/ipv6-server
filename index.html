@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IPv6 公网服务器</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Arial, "Microsoft YaHei", sans-serif;
+
+            background: #f5f5f5;
+        }
+
+        .box {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+
+            width: 420px;
+            max-width: 85%;
+
+            text-align: center;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .label {
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .ip {
+            font-size: 24px;
+            font-weight: bold;
+
+            word-break: break-all;
+
+            padding: 15px;
+
+            background: #f0f0f0;
+
+            border-radius: 8px;
+        }
+
+        .status {
+            margin-top: 25px;
+            color: #4caf50;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>IPv6 公网服务器</h1>
+
+    <div class="label">
+        当前访问设备 IP
+    </div>
+
+    <div class="ip" id="ip">
+        正在获取……
+    </div>
+
+    <div class="status">
+        ● 服务器连接正常
+    </div>
+
+</div>
+
+
+<script>
+
+    fetch("/ip")
+        .then(response => response.text())
+        .then(ip => {
+            document.getElementById("ip").textContent = ip;
+        })
+        .catch(error => {
+            document.getElementById("ip").textContent =
+                "无法获取访问者 IP";
+        });
+
+</script>
+
+</body>
+</html>

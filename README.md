@@ -2,7 +2,7 @@
 
 > 仅用 Python 标准库搭建的公网 IPv6 网站：启动时自动探测本机公网 IPv6 并打印访问地址，内置 `/ip` 接口向访客显示"你的 IP 是多少"。
 
-**简体中文** · [ English](#english)
+**中文** · [ English](#english)
 
 ---
 
